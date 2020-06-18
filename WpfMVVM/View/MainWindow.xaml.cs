@@ -22,6 +22,18 @@ namespace WpfMVVM.View
         public MainWindow()
         {
             InitializeComponent();
+            Vm.ActionTest += ActionTest;
+            Vm.ActionParameter += ActionParameter;
+        }
+
+        private void ActionParameter(string obj)
+        {
+            MessageBox.Show(obj);
+        }
+
+        private void ActionTest()
+        {
+            MessageBox.Show("ActionTest");
         }
     }
 }

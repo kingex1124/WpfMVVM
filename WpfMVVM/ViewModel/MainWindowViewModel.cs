@@ -14,6 +14,8 @@ namespace WpfMVVM.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {
+        public Action ActionTest = delegate { };
+        public Action<string> ActionParameter = delegate { };
         #region 建構子
 
         /// <summary>
@@ -174,6 +176,8 @@ namespace WpfMVVM.ViewModel
             try
             {
                 LabText = TbText;
+                ActionTest();
+                ActionParameter("actionPara");
             }
             catch (Exception ex)
             {
