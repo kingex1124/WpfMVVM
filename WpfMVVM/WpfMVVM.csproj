@@ -67,6 +67,7 @@
     <Compile Include="CommonUtility\RelayCommand.cs" />
     <Compile Include="CommonUtility\WPFDialog.cs" />
     <Compile Include="CommonUtility\WPFImageByte.cs" />
+    <Compile Include="Model\TestGridData.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

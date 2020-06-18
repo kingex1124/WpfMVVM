@@ -16,6 +16,25 @@
     <Grid>
         <Label Content="{Binding LabText,Mode=TwoWay}" HorizontalAlignment="Left" Margin="37,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.4,0.7" Height="26" Width="107"/>
         <TextBox FontSize="14" HorizontalAlignment="Left" Height="52"  TextWrapping="Wrap" Text="{Binding TbText,Mode=TwoWay}" VerticalAlignment="Top" Width="233" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="37,71,0,0" />
-        <Button Content="測試" FontSize="14" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="52" Height="34" RenderTransformOrigin="0.576,0.618" Command="{Binding BtnTestCommand}" IsEnabled="{Binding LoginState,Mode=TwoWay}" Margin="37,166,0,0" />
+        <Button Content="測試" FontSize="14" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="52" Height="34" RenderTransformOrigin="0.576,0.618" Command="{Binding BtnTestCommand}" IsEnabled="{Binding LoginState,Mode=TwoWay}" Margin="37,145,0,0" />
+        <RadioButton x:Name="TestRbtn" Content="" HorizontalAlignment="Left" Margin="125,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.062,-0.875" IsChecked="{Binding TestRbtn,Mode=TwoWay}" />
+        <RadioButton Content="" x:Name="TestRbtn2" HorizontalAlignment="Left" Margin="161,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,-0.75" IsChecked="{Binding TestRbtn2,Mode=TwoWay}" />
+
+        <DataGrid HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="318" Margin="386,40,0,0" ItemsSource="{Binding DataData}"  AutoGenerateColumns="False" CanUserSortColumns="False" SelectedValue="{Binding SelectedValue}" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding AColumn}" Header="A欄位" Width="50"/>
+                <DataGridTextColumn Binding="{Binding BColumn}" Header="B欄位" Width="50"/>
+                <DataGridTextColumn Binding="{Binding CColumn}" Header="C欄位" Width="50"/>
+                <DataGridTemplateColumn Width="55">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,0">
+                                <Button  Width="50"  Command="{Binding DataContext.ShowDataCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">Show</Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
