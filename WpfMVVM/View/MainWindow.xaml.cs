@@ -24,6 +24,12 @@ namespace WpfMVVM.View
             InitializeComponent();
             Vm.ActionTest += ActionTest;
             Vm.ActionParameter += ActionParameter;
+            Vm.FuncTest += FuncTest;
+        }
+
+        private bool FuncTest(string arg)
+        {
+            return false;
         }
 
         private void ActionParameter(string obj)

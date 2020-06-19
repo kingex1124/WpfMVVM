@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using WpfMVVM.CommonUtility;
 using WpfMVVM.Model;
@@ -16,6 +17,8 @@ namespace WpfMVVM.ViewModel
     {
         public Action ActionTest = delegate { };
         public Action<string> ActionParameter = delegate { };
+        public Func<string, bool> FuncTest = delegate (string s) { bool result = true ; return result; };
+
         #region 建構子
 
         /// <summary>
@@ -140,6 +143,8 @@ namespace WpfMVVM.ViewModel
 
         #endregion
 
+        #region 方法
+
         private ObservableCollection<TestGridData> GetDataList()
         {
             List<TestGridData> list = new List<TestGridData>()
@@ -162,6 +167,8 @@ namespace WpfMVVM.ViewModel
             return _dataListView;
         }
 
+        #endregion
+
         #region 事件
         public ICommand BtnTestCommand
         {
@@ -178,6 +185,8 @@ namespace WpfMVVM.ViewModel
                 LabText = TbText;
                 ActionTest();
                 ActionParameter("actionPara");
+                bool result = FuncTest("FuncTest");
+                MessageBox.Show(result.ToString());
             }
             catch (Exception ex)
             {
@@ -204,6 +213,7 @@ namespace WpfMVVM.ViewModel
         /// </summary>
         private void ShowDataCommandExecute()
         {
+
             MessageBox.Show(SelectedValue.AColumn);
         }
 
